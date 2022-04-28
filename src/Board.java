@@ -13,11 +13,13 @@ public class Board extends javax.swing.JFrame implements ActionListener{
 	private static JButton[][] buttons;
 	private final int BUTTONSIZE;
 	private final int BOARDSIZE;
+	private static int stBUTTONSIZE = 0;
 
 	public Board(int buttonSize, int boardSize) {
 		this.BUTTONSIZE = buttonSize;
-    this.game = new Game(boardSize);
+		this.game = new Game(boardSize);
 		this.BOARDSIZE = boardSize;
+		stBUTTONSIZE = buttonSize;
 		initializeWindow();
 		initializeBoard();
 	}
@@ -55,7 +57,7 @@ public class Board extends javax.swing.JFrame implements ActionListener{
 	{
 		button = new JButton();
 		button.setFocusable(false);
-		button.setFont(new Font("Calibri", Font.PLAIN, 70));
+		button.setFont(new Font("Calibri", Font.PLAIN, (int)(stBUTTONSIZE * 0.7)));
 		button.setBounds(x, y, size, size);
 		
 		return button;
